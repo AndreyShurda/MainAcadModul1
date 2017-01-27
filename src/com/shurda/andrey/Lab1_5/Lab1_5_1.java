@@ -3,14 +3,19 @@ package com.shurda.andrey.Lab1_5;
 import java.util.Scanner;
 
 /**
- * Created by admin on 16.01.2017.
+ * Write a program to produce on console the following :
+ * 1
+ * 2 1
+ * 3 2 1
+ * 4 3 2 1
+ * 5 4 3 2 1
+ * 6 5 4 3 2 1
+ * 7 6 5 4 3 2 1
+ * 8 7 6 5 4 3 2 1
  */
 public class Lab1_5_1 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number:");
-        String s = sc.nextLine();
-        int a = Integer.valueOf(s);
+        int a = 8;
 
         for (int i = 1; i <= a; i++){
             for(int j = 0; j < i; j++){
