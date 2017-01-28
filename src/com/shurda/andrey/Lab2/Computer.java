@@ -1,4 +1,4 @@
-package com.shurda.andrey.Lab2_1;
+package com.shurda.andrey.Lab2;
 
 /**
  *

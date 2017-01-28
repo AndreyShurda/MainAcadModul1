@@ -1,4 +1,4 @@
-package com.shurda.andrey.Lab2_1;
+package com.shurda.andrey.Lab2;
 
 /**
  * Write a program to create array of Computer objects (5 pcs.).
