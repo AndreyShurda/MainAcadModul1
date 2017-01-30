@@ -9,23 +9,50 @@ package com.shurda.andrey.Lab2_3;
  * isOpen(boolean).
  * 2) Create five instances of class MyWindow  with different  fields values.
  * 3) Add method printFields()  to  MyWindow class  that print all fields values to console.
+ * Lab2-3-2
+ * <p>
+ * 1) Add to class MyWindow constructor without parameters,
+ * which will initialize class’s fields by some default values.
+ * 2) Create instance of class MyWindow using constructor without parameters
+ * <p>
+ * Lab2-3-3
+ * Add to class MyWindow overload constructors,
+ * which will initialize class’ fields,
+ * depend from what data we will put there:
+ * MyWindow(width, height),
+ * MyWindow(width, height, numberOfGlass).
+ * Finally class MyWindow must have four constructors
+ * <p>
+ * Lab2-3-4
+ * Change code in two overloaded constructors to invoke first constructor using this keyword
  */
 public class MyWindow {
-    private double width;
-    private double height;
-    private int numberOfGlass;
-    private String color;
-    private boolean isOpen;
+    private double width = 300.0;
+    private double height = 250.0;
+    private int numberOfGlass = 2;
+    private String color = "red";
+    private boolean isOpen = true;
 
-    public MyWindow(double width, double height, int numberOfGlass, String color, boolean isOpen) {
+    public MyWindow() {
+    }
+
+    public MyWindow(double width, double height) {
         this.width = width;
         this.height = height;
+    }
+
+    public MyWindow(double width, double height, int numberOfGlass) {
+        this(width, height);
         this.numberOfGlass = numberOfGlass;
+    }
+
+    public MyWindow(double width, double height, int numberOfGlass, String color, boolean isOpen) {
+        this(width, height, numberOfGlass);
         this.color = color;
         this.isOpen = isOpen;
     }
 
-    public void printFields(){
+    public void printFields() {
         System.out.println(toString());
     }
 
@@ -33,41 +60,24 @@ public class MyWindow {
         return width;
     }
 
-    public void setWidth(double width) {
-        this.width = width;
-    }
-
     public double getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
-    }
 
     public int getNumberOfGlass() {
         return numberOfGlass;
     }
 
-    public void setNumberOfGlass(int numberOfGlass) {
-        this.numberOfGlass = numberOfGlass;
-    }
 
     public String getColor() {
         return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public boolean isOpen() {
         return isOpen;
     }
 
-    public void setOpen(boolean open) {
-        isOpen = open;
-    }
 
     @Override
     public String toString() {
