@@ -1,7 +1,7 @@
 package com.shurda.andrey.Lab2_3;
 
 /**
- * Created by admin on 30.01.2017.
+ * Create five instances of class MyWindow  with different  fields values.
  */
 public class UseMyWindow {
     public static void main(String[] args) {
