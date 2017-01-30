@@ -7,13 +7,19 @@ public class UsePerson {
     public static void main(String[] args) {
         Person person = new Person();
 
-        person.fieldList("Andrey");
-        person.fieldList("Andrey","Shurda");
-        person.fieldList("Andrey","Shurda",27);
-        person.fieldList("Andrey","Shurda",27, "J");
-        person.fieldList("Andrey","Shurda",27, "J", 1235468);
-
+        person.fieldList("Ivan");
         System.out.println(person.toString());
 
+        person.fieldList("Andrey", "Ivanov");
+        System.out.println(person.toString());
+
+        person.fieldList("Olexandr", "Ivanov", 27);
+        System.out.println(person.toString());
+
+        person.fieldList("Oleg", "Volk", 25, "M");
+        System.out.println(person.toString());
+
+        person.fieldList("Olga", "Popova", 28, "W", 0632410710);
+        System.out.println(person.toString());
     }
 }

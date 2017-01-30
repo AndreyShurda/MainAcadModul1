@@ -15,8 +15,7 @@ public class Person {
 
     public void fieldList(String firstName) {
         setFirstName(firstName);
-        System.out.println(toString());
-    }
+     }
 
     public void fieldList(String firstName, String lastName) {
         fieldList(firstName);
@@ -81,11 +80,11 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", phoneNumber=" + phoneNumber +
+                "firstName='" + getFirstName() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", age=" + getAge() +
+                ", gender='" + getGender() + '\'' +
+                ", phoneNumber=" + getPhoneNumber() +
                 '}';
     }
 }
