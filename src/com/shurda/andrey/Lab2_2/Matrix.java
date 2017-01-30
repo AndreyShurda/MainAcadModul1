@@ -12,11 +12,14 @@ public class Matrix {
         int n = firstMatrix.length;
         int m = firstMatrix[0].length;
         int[][] addMatrix = new int[n][m];
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                addMatrix[i][j] = firstMatrix[i][j] + secondMatrixs[i][j];
+        if (n == secondMatrixs.length) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    addMatrix[i][j] = firstMatrix[i][j] + secondMatrixs[i][j];
+                }
             }
+        } else {
+            System.out.println("Number of column firstMatrix must be equals secondMatrixs");
         }
         return addMatrix;
     }
@@ -26,7 +29,7 @@ public class Matrix {
         int m = secondMatrixs[0].length;
         int[][] mulMatrix = new int[n][m];
 
-//        if (n == m) {
+        if (n == secondMatrixs.length) {
             for (int i = 0; i < mulMatrix.length; i++) {
                 for (int j = 0; j < mulMatrix[i].length; j++) {
                     for (int k = 0; k < n; k++) {
@@ -34,9 +37,8 @@ public class Matrix {
                     }
                 }
             }
-//        }
-//        else
-//            System.out.println("Number of column firstMatrix must be equals row of secondMatrixs");
+        } else
+            System.out.println("Number of column firstMatrix must be equals row of secondMatrixs");
 
         return mulMatrix;
     }

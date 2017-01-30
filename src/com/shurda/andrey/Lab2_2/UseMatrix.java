@@ -14,11 +14,21 @@ public class UseMatrix {
 
         Matrix matrix = new Matrix();
 
-        System.out.println("column a = " + a.length + " row b = " + b.length);
+        int[][] resultArray;
+        resultArray = matrix.additionMatrix(a, b);
 
-        for (int[] items : matrix.multiplicationMatrix(a, b)) {
+        printArray("Addition Matrix", resultArray);
+
+        resultArray = matrix.multiplicationMatrix(a, b);
+        printArray("Multiplication Matrix", resultArray);
+
+
+    }
+
+    public static void printArray(String msg, int[][] array) {
+        System.out.println(msg);
+        for (int[] items : array) {
             System.out.println(Arrays.toString(items));
         }
-
     }
 }
