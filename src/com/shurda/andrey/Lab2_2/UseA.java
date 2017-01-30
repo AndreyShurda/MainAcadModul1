@@ -2,8 +2,9 @@ package com.shurda.andrey.Lab2_2;
 
 public class UseA {
     public static void main(String[] args) {
-        A.calcSquare(12.5);
-        A.calcSquare(2, 3);
-        A.calcSquare(4.5);
+        A a = new A();
+        a.calcSquare(2, 8);
+        a.calcSquare(3);
+        a.calcSquare(4.5);
     }
 }

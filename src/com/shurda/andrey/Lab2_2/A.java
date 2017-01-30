@@ -8,18 +8,18 @@ package com.shurda.andrey.Lab2_2;
  * assign to it the square of this integer and print result. What will you get? Explain result.
  */
 public class A {
-    public static int calcSquare(int a, int b) {
-        System.out.println("Square of rectangle is " + a * b);
-        return a * b;
+    public void calcSquare(int a, int b) {
+        int square = a* b;
+        System.out.println("Square of rectangle is " + square);
     }
 
-    public static int calcSquare(int a) {
+    public void calcSquare(int a) {
+        int square = a*a;
         System.out.println("Square of foursquare is " + a * a);
-        return a * a;
     }
 
-    public static void calcSquare(double a) {
+    public void calcSquare(double a) {
         double square = Math.PI * a * a;
-        System.out.println("Square of circle is " + a * a);
+        System.out.println("Square of circle is " + square);
     }
 }

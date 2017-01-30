@@ -13,7 +13,6 @@ public class Employee {
         }
 
         System.out.println("Name of employee " + name + " his total salary is: " + total);
-        ;
     }
 
 }
