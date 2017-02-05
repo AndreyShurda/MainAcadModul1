@@ -36,12 +36,12 @@ public class MyInit {
 
     public static void main(String[] args) {
         MyInit myInit1 = new MyInit();
+        MyInit myInit2 = new MyInit();
         System.out.println("First Array");
         myInit1.printArray();
 
         System.out.println();
 
-        MyInit myInit2 = new MyInit();
         System.out.println("Second Array");
         myInit2.printArray();
     }
