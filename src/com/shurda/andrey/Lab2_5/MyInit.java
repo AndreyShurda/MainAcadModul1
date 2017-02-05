@@ -18,7 +18,7 @@ package com.shurda.andrey.Lab2_5;
 public class MyInit {
     private static int[] arr;
 
-    {
+    static {
         System.out.println("Initialisation array");
         arr = new int[10];
         for (int i = 0; i < arr.length; i++) {
