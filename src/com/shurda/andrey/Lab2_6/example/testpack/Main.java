@@ -1,6 +1,6 @@
 package com.shurda.andrey.Lab2_6.example.testpack;
 
-import com.shurda.andrey.Lab2_6.com.brainacad.carpack.Car;
+import com.brainacad.carpack.Car;
 import com.shurda.andrey.Lab2_6.example.applepack.Apple;
 
 /**
