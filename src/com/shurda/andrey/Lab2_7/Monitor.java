@@ -27,9 +27,23 @@ public class Monitor extends Device {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Monitor)) return false;
+        if (!super.equals(o)) return false;
+
+        Monitor monitor = (Monitor) o;
+
+        if (getResolutionX() != monitor.getResolutionX() ||
+                getResolutionY() != monitor.getResolutionY()) return false;
+        return true;
+
+    }
+
+    @Override
     public String toString() {
         return super.toString() +
-                " X=" + resolutionX +
+                "X=" + resolutionX +
                 ", Y=" + resolutionY ;
     }
 }

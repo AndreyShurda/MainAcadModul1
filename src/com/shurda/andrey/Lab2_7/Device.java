@@ -47,6 +47,18 @@ public class Device {
         return this.getClass().getSimpleName() + ": " +
                 "manufacturer=" + manufacturer +
                 ", price=" + price +
-                ", serialNumber=" + serialNumber;
+                ", serialNumber=" + serialNumber + " ";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Device device = (Device) o;
+
+        if (!getManufacturer().equals(device.getManufacturer()) ||
+                getPrice() != device.getPrice() ||
+                !getSerialNumber().equals(device.getSerialNumber())) return false;
+        return true;
     }
 }
