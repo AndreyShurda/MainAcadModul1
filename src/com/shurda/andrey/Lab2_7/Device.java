@@ -61,4 +61,15 @@ public class Device {
                 !getSerialNumber().equals(device.getSerialNumber())) return false;
         return true;
     }
+
+    @Override
+    public int hashCode() {
+        int result = 1;
+        result = 31 * result + getManufacturer().hashCode();
+        long price = Double.doubleToLongBits(getPrice());
+        result = 31 * result + (int)(price ^ (price >>> 32));
+        result = 31 * result + getSerialNumber().hashCode();
+
+        return result;
+    }
 }

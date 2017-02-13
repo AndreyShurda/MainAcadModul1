@@ -40,6 +40,16 @@ public class EthernetAdapter extends Device {
         return true;
 
     }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + getSpeed();
+        result = 31 * result + getMac().hashCode();
+
+        return result;
+    }
+
     @Override
     public String toString() {
         return super.toString() +

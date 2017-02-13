@@ -41,6 +41,15 @@ public class Monitor extends Device {
     }
 
     @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + getResolutionX();
+        result = 31 * result + getResolutionY();
+
+        return result;
+    }
+
+    @Override
     public String toString() {
         return super.toString() +
                 "X=" + resolutionX +
