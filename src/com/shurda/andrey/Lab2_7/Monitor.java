@@ -25,4 +25,11 @@ public class Monitor extends Device {
     public void setResolutionY(int resolutionY) {
         this.resolutionY = resolutionY;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                " X=" + resolutionX +
+                ", Y=" + resolutionY ;
+    }
 }
