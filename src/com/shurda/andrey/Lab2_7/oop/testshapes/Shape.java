@@ -11,8 +11,12 @@ public class Shape {
     }
 
     public double calcArea() {
-//        System.out.println(getClass().getSimpleName() + " area is: 0");
+        printArea(0.0);
         return 0.0;
+    }
+
+    protected void printArea(double area){
+        System.out.println("Shape area is: " + area);
     }
 
     @Override

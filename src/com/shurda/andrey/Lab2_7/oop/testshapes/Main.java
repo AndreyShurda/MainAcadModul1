@@ -16,11 +16,25 @@ package com.shurda.andrey.Lab2_7.oop.testshapes;
  * Program output must looks like:
  * “This is Shape, color is: RED”
  * “Shape area is: 0”
+ * <p>
+ * Then add to class Main code to create one Circle object and print it name color, and radius to console. Then invoke calcArea() method and print result to console.
+ * Program output must looks like:
+ * “This is Circle, color: GREEN, radius=10”
+ * “Shape area is: 314.15926”
  */
 public class Main {
     public static void main(String[] args) {
         Shape shape = new Shape("red");
         System.out.println(shape);
-        System.out.println("Shape area is:" + shape.calcArea());
+        shape.calcArea();
+        System.out.println();
+
+        Shape shapeCircle = new Circle("Green", 22);
+        System.out.println(shapeCircle);
+        System.out.println();
+
+        Shape shapeCircle2 = new Circle("Green", 10);
+        System.out.println(shapeCircle2);
+        shapeCircle2.calcArea();
     }
 }
