@@ -29,7 +29,7 @@ public class Main {
 
     public static void printAllDevice(Device[] devices) {
         for (Device device : devices) {
-            System.out.println(device.toString());
+            System.out.println(device);
         }
     }
 
