@@ -22,8 +22,19 @@ public class Rectangle extends Shape {
     @Override
     public double calcArea() {
         double area = getHeight() * getWidth();
-        printArea(area);
+//        printArea(area);
         return area;
+    }
+
+
+    public static double sumRectangleArea(Shape[] shapes) {
+        double sum = 0;
+        for (Shape shape : shapes) {
+            if (shape instanceof Rectangle) {
+                sum += shape.calcArea();
+            }
+        }
+        return sum;
     }
 
     public double getWidth() {

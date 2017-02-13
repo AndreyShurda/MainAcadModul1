@@ -21,8 +21,18 @@ public class Circle extends Shape {
     @Override
     public double calcArea() {
         double area = Math.PI * getRadius() * getRadius();
-        printArea(area);
+//        printArea(area);
         return area;
+    }
+
+    public static double sumCircleArea(Shape[] shapes) {
+        double sum = 0;
+        for (Shape shape : shapes) {
+            if (shape instanceof Circle) {
+                sum += shape.calcArea();
+            }
+        }
+        return sum;
     }
 
     public double getRadius() {

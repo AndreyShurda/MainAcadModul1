@@ -1,8 +1,6 @@
 package com.shurda.andrey.Lab2_7.oop.testshapes;
 
-/**
- * Created by admin on 13.02.2017.
- */
+
 public class Shape {
     private String shapeColor;
 
@@ -11,7 +9,6 @@ public class Shape {
     }
 
     public double calcArea() {
-        printArea(0.0);
         return 0.0;
     }
 
@@ -23,6 +20,6 @@ public class Shape {
     @Override
     public String toString() {
         return "This is " + getClass().getSimpleName() +
-                ", color is: " + shapeColor.toUpperCase() + " ";
+                ", color is: " + shapeColor.toUpperCase();
     }
 }

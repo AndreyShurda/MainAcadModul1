@@ -31,8 +31,18 @@ public class Triangle extends Shape {
         double d = s * (s - getA()) * (s - getB()) * (s - getC());
         double area = pow(d, 0.5);
 
-        printArea(area);
+//        printArea(area);
         return area;
+    }
+
+    public static double sumTriangleArea(Shape[] shapes) {
+        double sum = 0;
+        for (Shape shape : shapes) {
+            if (shape instanceof Triangle) {
+                sum += shape.calcArea();
+            }
+        }
+        return sum;
     }
 
     public double getA() {
