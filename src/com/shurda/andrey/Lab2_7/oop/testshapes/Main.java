@@ -21,6 +21,10 @@ package com.shurda.andrey.Lab2_7.oop.testshapes;
  * Program output must looks like:
  * “This is Circle, color: GREEN, radius=10”
  * “Shape area is: 314.15926”
+ *
+ * Then add to class Main code to create one Rectangle object and print it name,
+ * color, width and height to console.
+ * Then invoke calcArea() method and print result to console
  */
 public class Main {
     public static void main(String[] args) {
@@ -33,8 +37,13 @@ public class Main {
         System.out.println(shapeCircle);
         System.out.println();
 
-        Shape shapeCircle2 = new Circle("Green", 10);
-        System.out.println(shapeCircle2);
-        shapeCircle2.calcArea();
+        Shape circle = new Circle("Green", 10);
+        System.out.println(circle);
+        circle.calcArea();
+        System.out.println();
+
+        Shape rectangle = new Rectangle("red", 11, 22);
+        System.out.println(rectangle);
+        rectangle.calcArea();
     }
 }
