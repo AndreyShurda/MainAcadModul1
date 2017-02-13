@@ -16,12 +16,13 @@ public class Shape {
     }
 
     protected void printArea(double area){
-        System.out.println("Shape area is: " + area);
+        System.out.print("Shape area is: ");
+        System.out.format("%.3f%n", area);
     }
 
     @Override
     public String toString() {
         return "This is " + getClass().getSimpleName() +
-                ", color is: " + shapeColor.toUpperCase();
+                ", color is: " + shapeColor.toUpperCase() + " ";
     }
 }

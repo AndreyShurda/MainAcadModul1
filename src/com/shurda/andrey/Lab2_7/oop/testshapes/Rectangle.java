@@ -33,4 +33,11 @@ public class Rectangle extends Shape {
     public double getHeight() {
         return height;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", width=" + width +
+                ", height=" + height;
+    }
 }
