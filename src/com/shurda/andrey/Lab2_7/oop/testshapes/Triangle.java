@@ -64,4 +64,14 @@ public class Triangle extends Shape {
                 ", b=" + b +
                 ", c=" + c;
     }
+
+    @Override
+    public void draw() {
+        System.out.println(toString() + " area is " + calcArea());
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }

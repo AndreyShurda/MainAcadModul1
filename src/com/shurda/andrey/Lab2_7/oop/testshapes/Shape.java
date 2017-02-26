@@ -1,16 +1,14 @@
 package com.shurda.andrey.Lab2_7.oop.testshapes;
 
 
-public class Shape {
+public abstract class Shape implements Drawable, Comparable{
     private String shapeColor;
 
     public Shape(String shapeColor) {
         this.shapeColor = shapeColor;
     }
 
-    public double calcArea() {
-        return 0.0;
-    }
+    public abstract double calcArea();
 
     protected void printArea(double area){
         System.out.print("Shape area is: ");

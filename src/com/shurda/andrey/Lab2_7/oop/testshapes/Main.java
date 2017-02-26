@@ -67,10 +67,10 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
-        Shape shape = new Shape("red");
-        System.out.println(shape);
-        shape.calcArea();
-        System.out.println();
+//        Shape shape = new Shape("red");
+//        System.out.println(shape);
+//        shape.calcArea();
+//        System.out.println();
 
         Shape shapeCircle = new Circle("Green", 22);
         System.out.println(shapeCircle);
@@ -111,6 +111,10 @@ public class Main {
         System.out.println("Rectangles total area:" + Rectangle.sumRectangleArea(shapes));
         System.out.println("Circles total area:" + Circle.sumCircleArea(shapes));
         System.out.println("Triangle total area:" + Triangle.sumTriangleArea(shapes));
+
+        System.out.println("Lab2-8");
+
+
 
     }
 

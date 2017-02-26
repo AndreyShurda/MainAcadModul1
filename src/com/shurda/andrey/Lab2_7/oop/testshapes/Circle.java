@@ -47,4 +47,14 @@ public class Circle extends Shape {
     public String toString() {
         return super.toString() + ", radius=" + getRadius();
     }
+
+    @Override
+    public void draw() {
+        System.out.println(toString() + " area is " + calcArea());
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }
