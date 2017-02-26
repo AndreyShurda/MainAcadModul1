@@ -55,6 +55,14 @@ public class Circle extends Shape {
 
     @Override
     public int compareTo(Object o) {
+        Circle circle = (Circle) o;
+        if (this.calcArea() > circle.calcArea()) {
+            return 1;
+        }
+        if (this.calcArea() < circle.calcArea()) {
+            return -1;
+        }
+
         return 0;
     }
 }

@@ -59,6 +59,15 @@ public class Rectangle extends Shape {
 
     @Override
     public int compareTo(Object o) {
+        Rectangle rectangle = (Rectangle) o;
+        if (this.calcArea() > rectangle.calcArea()) {
+            return 1;
+        }
+        if (this.calcArea() < rectangle.calcArea()) {
+            return -1;
+        }
+
         return 0;
     }
+
 }
