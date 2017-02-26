@@ -1,6 +1,10 @@
 package com.shurda.andrey.Lab2_7.oop.testshapes;
 
+import com.shurda.andrey.Util.ArrayElements;
+
 import java.util.Arrays;
+
+import static com.shurda.andrey.Util.ArrayElements.*;
 
 public class UseInterface {
     public static void main(String[] args) {
@@ -8,10 +12,10 @@ public class UseInterface {
         Shape triangle = new Triangle("black", 5, 5, 5);
         Shape circle = new Circle("Green", 10);
 
-        Shape[] shapes = new Shape[3];
-        shapes[0] = rectangle;
-        shapes[1] = triangle;
-        shapes[2] = circle;
+        Shape[] shapes = new Shape[0];
+        shapes = addElements(shapes, rectangle);
+        shapes = addElements(shapes, triangle);
+        shapes = addElements(shapes, circle);
 
         printAllShapes(shapes);
 
@@ -20,13 +24,14 @@ public class UseInterface {
         System.out.println(rectangle2.compareTo(rectangle3));
 
         System.out.println("Lab2-8-4");
-        Shape[] rectangles = new Rectangle[6];
-        rectangles[0] = new Rectangle("red", 11, 22);
-        rectangles[1] = new Rectangle("black", 1, 2);
-        rectangles[2] = new Rectangle("yellow", 8, 12);
-        rectangles[3] = new Rectangle("white", 5, 30);
-        rectangles[4] = new Rectangle("green", 11, 18);
-        rectangles[5] = new Rectangle("red", 20, 22);
+
+        Shape[] rectangles = new Rectangle[0];
+        rectangles = addElements(rectangles, new Rectangle("red", 11, 22));
+        rectangles = addElements(rectangles, new Rectangle("black", 1, 2));
+        rectangles = addElements(rectangles, new Rectangle("yellow", 8, 12));
+        rectangles = addElements(rectangles, new Rectangle("white", 5, 30));
+        rectangles = addElements(rectangles, new Rectangle("green", 11, 18));
+        rectangles = addElements(rectangles, new Rectangle("red", 20, 22));
 
         System.out.println("Before sort");
         printAllShapes(rectangles);
@@ -35,13 +40,28 @@ public class UseInterface {
         Arrays.sort(rectangles);
         printAllShapes(rectangles);
 
+        System.out.println("Lab2-8-5");
+        Shape[] shapesCompare = new Shape[0];
+
+        for (int i = 0; i < rectangles.length; i++) {
+            shapesCompare = addElements(shapesCompare, rectangles[i]);
+        }
+
+        for (int i = 0; i < shapes.length; i++) {
+            shapesCompare = addElements(shapesCompare, shapes[i]);
+        }
+        shapesCompare = addElements(shapesCompare, new Circle("white",2));
+        printAllShapes(shapesCompare);
+        Arrays.sort(shapesCompare);
+
         System.out.println();
         System.out.println("After multiple sort");
-        Arrays.sort(rectangles, new ShapeCompare());
-        printAllShapes(rectangles);
+        Arrays.sort(shapesCompare, new ShapeCompare());
+        printAllShapes(shapesCompare);
+
     }
 
-    public static void printAllShapes(Drawable[] obj){
+    public static void printAllShapes(Drawable[] obj) {
         for (Drawable drawable : obj) {
             drawable.draw();
         }
