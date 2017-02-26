@@ -57,17 +57,24 @@ public class Rectangle extends Shape {
         System.out.println(toString() + " area is " + calcArea());
     }
 
-    @Override
-    public int compareTo(Object o) {
-        Rectangle rectangle = (Rectangle) o;
-        if (this.calcArea() > rectangle.calcArea()) {
-            return 1;
-        }
-        if (this.calcArea() < rectangle.calcArea()) {
-            return -1;
-        }
+//    @Override
+//    public int compareTo(Object o) {
+//        Rectangle rectangle = (Rectangle) o;
+//        if (this.calcArea() > rectangle.calcArea()) {
+//            return 1;
+//        }
+//        if (this.calcArea() < rectangle.calcArea()) {
+//            return -1;
+//        }
+//
+//        return 0;
+//    }
 
-        return 0;
-    }
-
+//    @Override
+//    public int compare(Object o1, Object o2) {
+//        Rectangle rect = (Rectangle) o1;
+//        Rectangle rect2 = (Rectangle) o2;
+//        if (rect)
+//        return 0;
+//    }
 }

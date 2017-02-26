@@ -70,16 +70,21 @@ public class Triangle extends Shape {
         System.out.println(toString() + " area is " + calcArea());
     }
 
-    @Override
-    public int compareTo(Object o) {
-        Triangle triangle = (Triangle) o;
-        if (this.calcArea() > triangle.calcArea()) {
-            return 1;
-        }
-        if (this.calcArea() < triangle.calcArea()) {
-            return -1;
-        }
+//    @Override
+//    public int compareTo(Object o) {
+//        Triangle triangle = (Triangle) o;
+//        if (this.calcArea() > triangle.calcArea()) {
+//            return 1;
+//        }
+//        if (this.calcArea() < triangle.calcArea()) {
+//            return -1;
+//        }
+//
+//        return 0;
+//    }
 
-        return 0;
-    }
+//    @Override
+//    public int compare(Object o1, Object o2) {
+//        return 0;
+//    }
 }

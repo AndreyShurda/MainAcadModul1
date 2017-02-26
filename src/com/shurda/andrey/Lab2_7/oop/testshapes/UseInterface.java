@@ -2,9 +2,6 @@ package com.shurda.andrey.Lab2_7.oop.testshapes;
 
 import java.util.Arrays;
 
-/**
- * Created by User on 26.02.2017.
- */
 public class UseInterface {
     public static void main(String[] args) {
         Shape rectangle = new Rectangle("red", 11, 22);
@@ -38,6 +35,10 @@ public class UseInterface {
         Arrays.sort(rectangles);
         printAllShapes(rectangles);
 
+        System.out.println();
+        System.out.println("After multiple sort");
+        Arrays.sort(rectangles, new ShapeCompare());
+        printAllShapes(rectangles);
     }
 
     public static void printAllShapes(Drawable[] obj){
