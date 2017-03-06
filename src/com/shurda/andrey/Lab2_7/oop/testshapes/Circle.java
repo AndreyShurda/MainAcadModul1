@@ -35,6 +35,22 @@ public class Circle extends Shape {
         return sum;
     }
 
+    public static Circle parseCircle(String stringShape) {
+        String[] arrayShape = stringShape.split(":");
+        Circle shape = null;
+        if (arrayShape.length == 3) {
+            String parameters = arrayShape[2];
+            String[] arrayParameters = parameters.split(",");
+            if (arrayParameters.length == 1)
+                shape = new Circle(arrayShape[1], Double.parseDouble(arrayParameters[0]));
+            else
+                System.out.println("Not a Circle");
+        } else
+            System.out.println("This string can't convert to a Circle");
+
+        return shape;
+    }
+
     public double getRadius() {
         return radius;
     }

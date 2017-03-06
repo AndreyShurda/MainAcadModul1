@@ -3,7 +3,7 @@ package com.shurda.andrey.Lab2_7.oop.testshapes;
 
 import java.util.Comparator;
 
-public abstract class Shape implements Drawable, Comparable<Shape>{
+public abstract class Shape implements Drawable, Comparable<Shape> {
     private String shapeColor;
 
     public Shape(String shapeColor) {
@@ -16,9 +16,32 @@ public abstract class Shape implements Drawable, Comparable<Shape>{
 
     public abstract double calcArea();
 
-    protected void printArea(double area){
+    protected void printArea(double area) {
         System.out.print("Shape area is: ");
         System.out.format("%.3f%n", area);
+    }
+
+    public static Shape parseShape(String stringShape) {
+        String[] arrayShape = stringShape.split(":");
+        Shape shape = null;
+        if (arrayShape.length == 3) {
+            switch (arrayShape[0]) {
+                case "Rectangle":
+                    shape = Rectangle.parseRectangle(stringShape);
+                    break;
+                case "Triangle":
+                    shape = Triangle.parseTriangle(stringShape);
+                    break;
+                case "Circle":
+                    shape = Circle.parseCircle(stringShape);
+                    break;
+                default:
+                    System.out.println("Not a shape");
+            }
+        }else
+            System.out.println("This string can't convert to a shape");
+
+        return shape;
     }
 
     @Override

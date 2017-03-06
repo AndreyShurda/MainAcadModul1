@@ -45,6 +45,22 @@ public class Triangle extends Shape {
         return sum;
     }
 
+    public static Triangle parseTriangle(String stringShape) {
+        String[] arrayShape = stringShape.split(":");
+        Triangle shape = null;
+        if (arrayShape.length == 3) {
+            String parameters = arrayShape[2];
+            String[] arrayParameters = parameters.split(",");
+            if (arrayParameters.length == 3)
+                shape = new Triangle(arrayShape[1], Double.parseDouble(arrayParameters[0]), Double.parseDouble(arrayParameters[1]), Double.parseDouble(arrayParameters[2]));
+            else
+                System.out.println("Not a Triangle");
+        } else
+            System.out.println("This string can't convert to a Triangle");
+
+        return shape;
+    }
+
     public double getA() {
         return a;
     }

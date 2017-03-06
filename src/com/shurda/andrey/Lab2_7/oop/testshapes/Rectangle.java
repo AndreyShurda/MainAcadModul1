@@ -37,6 +37,22 @@ public class Rectangle extends Shape {
         return sum;
     }
 
+    public static Rectangle parseRectangle(String stringShape) {
+        String[] arrayShape = stringShape.split(":");
+        Rectangle shape = null;
+        if (arrayShape.length == 3) {
+            String parameters = arrayShape[2];
+            String[] arrayParameters = parameters.split(",");
+            if (arrayParameters.length == 2)
+                shape = new Rectangle(arrayShape[1], Double.parseDouble(arrayParameters[0]), Double.parseDouble(arrayParameters[1]));
+            else
+                System.out.println("Not a Rectangle");
+        } else
+            System.out.println("This string can't convert to a Rectangle");
+
+        return shape;
+    }
+
     public double getWidth() {
         return width;
     }
