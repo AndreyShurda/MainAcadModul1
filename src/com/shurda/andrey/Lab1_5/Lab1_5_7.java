@@ -14,16 +14,15 @@ public class Lab1_5_7 {
         boolean isInt;
         long n = 0;
         do {
-            System.out.print("Enter nuber:");
+            System.out.print("Enter number:");
             isInt = scanner.hasNextInt();
             line = scanner.nextLine();
             if (!isInt) {
                 System.out.println("It's not a number. Please enter an integer number");
             } else {
+                n = Integer.valueOf(line);
                 if (n <= 0)
                     System.out.println("Enter positive number");
-                else
-                    n = Integer.valueOf(line);
             }
         } while (!isInt || n <= 0);
 
