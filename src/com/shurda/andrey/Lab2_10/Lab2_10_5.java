@@ -4,6 +4,8 @@ import com.shurda.andrey.Lab2_7.oop.testshapes.Shape;
 
 import java.util.Scanner;
 
+import static com.shurda.andrey.Util.Labs.getPositiveInteger;
+
 /**
  * Add code to main() method in class Main which read integer value as string line from console (using Scanner class)
  * and then convert it to value of integer type (using Integer.parseInt() method).
@@ -27,21 +29,7 @@ import java.util.Scanner;
 public class Lab2_10_5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String intNumber;
-        boolean isInt;
-        long numberOfShape = 0;
-        do {
-            System.out.print("Enter number:");
-            isInt = scanner.hasNextInt();
-            intNumber = scanner.nextLine();
-            if (!isInt) {
-                System.out.println("It's not a number. Please enter an integer number");
-            } else {
-                numberOfShape = Integer.valueOf(intNumber);
-                if (numberOfShape <= 0)
-                    System.out.println("Enter positive number");
-            }
-        } while (!isInt || numberOfShape <= 0);
+        int numberOfShape = getPositiveInteger();
 
         int countShape = 0;
         String shape;
@@ -58,4 +46,6 @@ public class Lab2_10_5 {
             s.draw();
         }
     }
+
+
 }

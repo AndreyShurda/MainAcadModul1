@@ -19,9 +19,9 @@ import com.shurda.andrey.Lab2_7.oop.testshapes.Shape;
  */
 public class Lab2_10_3 {
     public static void main(String[] args) {
-        System.out.println(Shape.parseShape("Rectangle:RED:10,20").toString());
-        System.out.println(Shape.parseShape("Triangle:GREEN:9,7,12").toString());
-        System.out.println(Shape.parseShape("Circle:BLACK:10").toString());
+        System.out.println(Shape.parseShape("Rectangle:RED:10,20"));
+        System.out.println(Shape.parseShape("Triangle:GREEN:9,7,12"));
+        System.out.println(Shape.parseShape("Circle:BLACK:10"));
         System.out.println(Shape.parseShape("Triangles:GREEN:9,7,2"));
         System.out.println(Shape.parseShape("Triangle:GREEN,9"));
     }
