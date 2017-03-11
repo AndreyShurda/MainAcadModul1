@@ -15,13 +15,13 @@ public class Labs {
         return newArrayElements;
     }
 
-    public static int getPositiveInteger() {
+    public static int getPositiveInteger(String msg) {
         Scanner scanner = new Scanner(System.in);
         String intNumber;
         boolean isInt;
         int positiveNumber = 0;
         do {
-            System.out.print("Enter number:");
+            System.out.print("Enter number " + msg + " :");
             isInt = scanner.hasNextInt();
             intNumber = scanner.nextLine();
             if (!isInt) {

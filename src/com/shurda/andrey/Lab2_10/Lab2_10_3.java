@@ -1,5 +1,6 @@
 package com.shurda.andrey.Lab2_10;
 
+import com.shurda.andrey.Lab2_7.oop.testshapes.InvalidShapeStringException;
 import com.shurda.andrey.Lab2_7.oop.testshapes.Shape;
 
 /**
@@ -18,7 +19,7 @@ import com.shurda.andrey.Lab2_7.oop.testshapes.Shape;
 
  */
 public class Lab2_10_3 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidShapeStringException {
         System.out.println(Shape.parseShape("Rectangle:RED:10,20"));
         System.out.println(Shape.parseShape("Triangle:GREEN:9,7,12"));
         System.out.println(Shape.parseShape("Circle:BLACK:10"));

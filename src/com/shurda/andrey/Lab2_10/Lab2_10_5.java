@@ -1,5 +1,6 @@
 package com.shurda.andrey.Lab2_10;
 
+import com.shurda.andrey.Lab2_7.oop.testshapes.InvalidShapeStringException;
 import com.shurda.andrey.Lab2_7.oop.testshapes.Shape;
 
 import java.util.Scanner;
@@ -29,16 +30,20 @@ import static com.shurda.andrey.Util.Labs.getPositiveInteger;
 public class Lab2_10_5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int numberOfShape = getPositiveInteger();
+        int numberOfShape = getPositiveInteger("of shape");
 
         int countShape = 0;
         String shape;
-        Shape[] shapes = new Shape[3];
+        Shape[] shapes = new Shape[numberOfShape];
 
         while (countShape < numberOfShape) {
             System.out.print("Enter shape" + (countShape + 1) + ":");
             shape = scanner.nextLine();
-            shapes[countShape] = Shape.parseShape(shape);
+            try {
+                shapes[countShape] = Shape.parseShape(shape);
+            } catch (InvalidShapeStringException e) {
+                e.printStackTrace();
+            }
             countShape++;
         }
 
