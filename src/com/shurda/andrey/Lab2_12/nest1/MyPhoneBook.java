@@ -1,5 +1,10 @@
 package com.shurda.andrey.Lab2_12.nest1;
 
+import com.shurda.andrey.Util.Labs;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * Create a class MyPhoneBook which contains static nested class PhoneNumber.
  * 1) Add to class PhoneNumber two fields: name (of String type) and phone (оf String type),
@@ -19,11 +24,12 @@ package com.shurda.andrey.Lab2_12.nest1;
  * Name: Vova, phone: 067987654
  */
 public class MyPhoneBook {
-    PhoneNumber[] phoneNumbers = new PhoneNumber[10];
+    PhoneNumber[] phoneNumbers = new PhoneNumber[0];
     private static int countOfPhoneNumbers;
 
     public void addPhoneNumber(String name, String phone) {
-        phoneNumbers[countOfPhoneNumbers] = new PhoneNumber(name, phone);
+//        phoneNumbers[countOfPhoneNumbers] = new PhoneNumber(name, phone);
+        phoneNumbers = Labs.addElements(phoneNumbers, new PhoneNumber(name, phone));
     }
 
     public void printPhoneBook() {
@@ -31,6 +37,25 @@ public class MyPhoneBook {
             System.out.println(phoneNumbers[i]);
         }
     }
+
+    public void sortByName() {
+        Arrays.sort(phoneNumbers, new Comparator<PhoneNumber>() {
+            @Override
+            public int compare(PhoneNumber o1, PhoneNumber o2) {
+                return o1.getName().compareToIgnoreCase(o2.getName());
+            }
+        });
+    }
+
+    public void sortByPhoneNumber() {
+        Arrays.sort(phoneNumbers, new Comparator<PhoneNumber>() {
+            @Override
+            public int compare(PhoneNumber o1, PhoneNumber o2) {
+                return o1.getPhone().compareToIgnoreCase(o2.getPhone());
+            }
+        });
+    }
+
 
     public static class PhoneNumber {
         private String name;
@@ -52,7 +77,7 @@ public class MyPhoneBook {
 
         @Override
         public String toString() {
-            return  "name: " + name +
+            return "name: " + name +
                     ", phone: " + phone;
         }
     }
