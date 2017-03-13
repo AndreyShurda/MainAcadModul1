@@ -62,7 +62,7 @@ public class MyPhoneBook {
         });
     }
 
-    class PhoneNumber {
+    static class PhoneNumber {
         private String name;
         private String phone;
 
