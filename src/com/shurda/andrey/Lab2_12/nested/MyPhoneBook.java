@@ -1,5 +1,8 @@
 package com.shurda.andrey.Lab2_12.nested;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * Create a class MyPhoneBook which contains static nested class PhoneNumber.
  * 1) Add to class PhoneNumber two fields: name (of String type) and phone (îf String type),
@@ -22,16 +25,41 @@ public class MyPhoneBook {
     private static int countOfPhoneNumber;
 
     public void addPhoneNumber(String name, String phone) {
-        if (countOfPhoneNumber == phoneNumbers.length)
+        if (countOfPhoneNumber == phoneNumbers.length) {
             System.out.println("The phone book is full");
-        else
+        } else {
             phoneNumbers[countOfPhoneNumber] = new PhoneNumber(name, phone);
+        }
     }
 
     public void printPhoneBook() {
         for (int i = 0; i < countOfPhoneNumber; i++) {
             System.out.println(phoneNumbers[i]);
         }
+    }
+
+    public void sortByPhoneNumber() {
+        Arrays.sort(phoneNumbers, new Comparator<PhoneNumber>() {
+            @Override
+            public int compare(PhoneNumber pn1, PhoneNumber pn2) {
+                if (pn1 == null || pn2 == null)
+                    return 1;
+                else
+                    return pn1.getPhone().compareToIgnoreCase(pn2.getPhone());
+            }
+        });
+    }
+
+    public void sortByName() {
+        Arrays.sort(phoneNumbers, new Comparator<PhoneNumber>() {
+            @Override
+            public int compare(PhoneNumber pn1, PhoneNumber pn2) {
+                if (pn1 == null || pn2 == null)
+                    return 1;
+                else
+                    return pn1.getName().compareToIgnoreCase(pn2.getName());
+            }
+        });
     }
 
     class PhoneNumber {
