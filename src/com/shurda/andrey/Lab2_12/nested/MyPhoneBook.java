@@ -25,10 +25,11 @@ public class MyPhoneBook {
     private static int countOfPhoneNumber;
 
     public void addPhoneNumber(String name, String phone) {
-        if (countOfPhoneNumber == phoneNumbers.length) {
-            System.out.println("The phone book is full");
-        } else {
+        try {
             phoneNumbers[countOfPhoneNumber] = new PhoneNumber(name, phone);
+            countOfPhoneNumber++;
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("The phone book is full");
         }
     }
 
@@ -67,7 +68,6 @@ public class MyPhoneBook {
         private String phone;
 
         public PhoneNumber(String name, String phone) {
-            countOfPhoneNumber++;
             this.name = name;
             this.phone = phone;
         }
@@ -82,7 +82,7 @@ public class MyPhoneBook {
 
         @Override
         public String toString() {
-            return "name=: " + name + ", phone: " + phone;
+            return "Name: " + name + ", phone: " + phone;
         }
     }
 }
