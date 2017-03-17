@@ -85,4 +85,8 @@ public class MyPhoneBook {
             return "Name: " + name + ", phone: " + phone;
         }
     }
+
+    static class Camera{
+
+    }
 }

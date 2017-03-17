@@ -14,7 +14,6 @@ import java.util.Comparator;
  * and full information from MyPhoneBook element (by index of array).
  */
 
-
 public class MyPhone {
     private MyPhoneBook myPhoneBook;
 

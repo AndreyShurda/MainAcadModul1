@@ -7,6 +7,21 @@ package com.shurda.andrey.Lab2_12;
  * Example of program output:
  * Loading PhoneBook records… OK!
  * Calling to: Name: Boris, phone: 0679878888
+ *
+ * Lab2_12_4
+ * Add to project next classes:
+ * class Camera;
+ * class Bluetooth;
+ * class MemoryCard;
+ * class SimCard;
+ * class PowerOnButton;
+ * class HeadPhones;
+ * class PhoneBattery;
+ * class PhoneCharger;
+ * class PhoneDisplay;
+ * class PhoneSpeaker;
+ * Analyze and decide how to create each of these classes, like top-level class,
+ * like static nested class or like inner class of MyPhone class
  */
 public class Main {
     public static void main(String[] args) {
