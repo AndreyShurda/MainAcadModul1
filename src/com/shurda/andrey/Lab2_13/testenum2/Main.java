@@ -1,4 +1,4 @@
-package com.shurda.andrey.Lab2_13.testenum1.testunum2;
+package com.shurda.andrey.Lab2_13.testenum2;
 
 /**
  * Create new project called  TestEnum2. Add package “com.brainacad.oop.testenum2”.
