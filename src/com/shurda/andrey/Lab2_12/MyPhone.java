@@ -7,10 +7,10 @@ import java.util.Comparator;
  * 1) Create new class MyPhone. Rewrite class MyPhoneBook to make it as inner class (non-static) of  MyPhone class
  * (move class MyPhoneBook code inside MyPhone class).
  * Add to class MyPhone constructor with no arguments to initialize the field phonebook.
- * Add to class MyPhone public method swichOn(), which print message “Loading PhoneBook records…” and
+ * Add to class MyPhone public method swichOn(), which print message ï¿½Loading PhoneBook recordsï¿½ï¿½ and
  * create MyPhoneBook object and add to it ten phone number records.
- * Then print to console “OK!”;
- * Add to class MyPhone method call(int), which prints to console message “Calling to”
+ * Then print to console ï¿½OK!ï¿½;
+ * Add to class MyPhone method call(int), which prints to console message ï¿½Calling toï¿½
  * and full information from MyPhoneBook element (by index of array).
  */
 
@@ -110,4 +110,15 @@ public class MyPhone {
             }
         }
     }
+    class Camera{};
+    class Bluetooth{};
+    class MemoryCard{};
+    class SimCard{};
+    class PowerOnButton{};
+    class HeadPhones{};
+
+    static class PhoneBattery{};
+    static class PhoneCharger{};
+    static class PhoneDisplay{};
+    static class PhoneSpeaker{};
 }

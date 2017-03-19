@@ -30,10 +30,13 @@ public class MyTestClass {
 
     void someMothod() {
         System.out.println("method someMothod() MyLocal");
+
          class MyLocal {
             {
                 System.out.println("initialization MyLocal");
             }
         }
+
+        MyLocal myLocal = new MyLocal();
     }
 }
