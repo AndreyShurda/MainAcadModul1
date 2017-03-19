@@ -7,10 +7,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * Create new project called  TestEnum3. Add package “com.brainacad.oop.testenum3”.
+ * Create new project called  TestEnum3. Add package ï¿½com.brainacad.oop.testenum3ï¿½.
  * Create a class TrainSchedule which contains inner class Train.
  * 1) Add to class Train six fields: number (of int type), stationDispatch (of String type), stationArrival (of String type),
- * timeDispatch (îf String type), timeArrival (of String type) and days (array of enum type DayOfWeek,
+ * timeDispatch (ï¿½f String type), timeArrival (of String type) and days (array of enum type DayOfWeek,
  * containing a list of days of the week), constructor with one parameter (number train) and getters/setter for each class field.
  * Override the toString() method in Train to return all information about train.
  * 2) Add to class TrainSchedule private field trains as array of Train and constructor with one parameter to allocate memory to the schedule.
@@ -34,11 +34,57 @@ public class TrainSchedule {
         Scanner scanner = new Scanner(System.in);
         int countOfTrain = 0;
         while (countOfTrain < trains.length) {
-            int train = Labs.getPositiveInteger(" of train ");
-            trains[countOfTrain] = new Train(train);
+            Train train = new Train(Labs.getPositiveInteger(" of train "));
+
+            String stationDispatch = getStringFromScanner("stationDispatch");
+            train.setStationDispatch(stationDispatch);
+
+            String stationArrival = getStringFromScanner("stationArrival");
+            train.setStationArrival(stationArrival);
+
+            String timeDispatch = getStringFromScanner("timeDispatch");
+            train.setTimeDispatch(timeDispatch);
+
+            String timeArrival = getStringFromScanner("timeArrival");
+            train.setTimeArrival(timeArrival);
+
+            String days = getStringFromScanner("days");
+//            parseDays(days);
+            train.setDays(parseDays(days));
+
+            trains[countOfTrain] = train;
             countOfTrain++;
         }
     }
+
+    static int count = 0;
+
+    public void addTrain(int number, String stationDispatch, String stationArrival, String timeDispatch, String timeArrival, MyDayOfWeek[] days) {
+        Train train = new Train(number);
+        train.setStationDispatch(stationDispatch);
+        train.setStationArrival(stationArrival);
+        train.setTimeDispatch(timeDispatch);
+        train.setTimeArrival(timeArrival);
+        train.setDays(days);
+        trains[count] = train;
+        count++;
+    }
+
+    private MyDayOfWeek[] parseDays(String days) {
+        String[] daysOfWeek = days.split(",");
+        MyDayOfWeek[] myDayOfWeek = new MyDayOfWeek[daysOfWeek.length];
+        for (int i = 0; i < daysOfWeek.length; i++) {
+            myDayOfWeek[i] = MyDayOfWeek.valueOf(daysOfWeek[i]);
+        }
+        return myDayOfWeek;
+    }
+
+    private String getStringFromScanner(String msg) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter " + msg + " : ");
+        return scanner.nextLine();
+    }
+
 
     public void printTrains() {
         for (Train train : trains) {
@@ -46,18 +92,21 @@ public class TrainSchedule {
         }
     }
 
-    public boolean searchTrain(String stationDispatch, String stationArrival, MyDayOfWeek day) {
-        for (Train train : trains) {
-            if (train.getStationDispatch().contains(stationDispatch) && train.getStationArrival().contains(stationArrival)){
-                for (int i = 0; i < train.getDays().length; i++) {
-                    if (train.getDays()[i].equals(day)){
-                        return true;
+    public Train searchTrain(String stationDispatch, String stationArrival, MyDayOfWeek day) {
+//        for (Train train : trains) {
+        for (int i = 0; i < trains.length; i++) {
+            if (trains[i].getStationDispatch().equals(stationDispatch) && trains[i].getStationArrival().equals(stationArrival)) {
+                for (int j = 0; j < trains[i].getDays().length; j++) {
+                    if (trains[i].getDays()[j].equals(day)) {
+                        return trains[i];
                     }
                 }
             }
         }
-        return false;
+        return null;
     }
+
+
 
     class Train {
         private int number;
@@ -65,7 +114,7 @@ public class TrainSchedule {
         private String stationArrival;
         private String timeDispatch;
         private String timeArrival;
-        private MyDayOfWeek days[] = MyDayOfWeek.values();
+        private MyDayOfWeek days[];
 
         public Train(int number) {
             this.number = number;
