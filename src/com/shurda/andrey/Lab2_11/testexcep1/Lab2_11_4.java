@@ -1,20 +1,17 @@
 package com.shurda.andrey.Lab2_11.testexcep1;
 
-import com.shurda.andrey.Lab2_10.Lab2_10_5;
 import com.shurda.andrey.Lab2_7.oop.testshapes.InvalidShapeStringException;
 import com.shurda.andrey.Lab2_7.oop.testshapes.Shape;
-
 import java.util.Scanner;
-
 import static com.shurda.andrey.Util.Labs.getPositiveInteger;
 
 /**
  * Create InvalidShapeStringException class  that is subclass of Exception.
  * Rewrite the parseShape(String) method in class Shape to throw  InvalidShapeStringException
  * if string passed as method argument is not valid. Example of valid string:
- * “Rectangle:RED:10,20”; Example of invalid strings:
- * “RectangRED12”;
- * “sdzgdzhgd”;
+ * ï¿½Rectangle:RED:10,20ï¿½; Example of invalid strings:
+ * ï¿½RectangRED12ï¿½;
+ * ï¿½sdzgdzhgdï¿½;
  * Add code to main() method in class Main, which creates one Rectangle,
  * one Triangle and one Circle using Shape.parseShape(String) method and handles (using try-catch)
  * exceptions if it occurs (display parsing error message on console).

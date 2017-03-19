@@ -21,7 +21,7 @@ public abstract class Shape implements Drawable, Comparable<Shape> {
         System.out.format("%.3f%n", area);
     }
 
-    public static Shape parseShape(String stringShape) {
+    public static Shape parseShape(String stringShape) throws InvalidShapeStringException {
         String[] arrayShape = stringShape.split(":");
         Shape shape = null;
         if (arrayShape.length == 3) {
@@ -38,8 +38,9 @@ public abstract class Shape implements Drawable, Comparable<Shape> {
                 default:
                     System.out.println("Not a shape");
             }
-        }else
-            System.out.println("This string can't convert to a shape");
+        } else
+//            System.out.println("This string can't convert to a shape");
+            throw new InvalidShapeStringException("This string can't convert to a shape");
 
         return shape;
     }

@@ -1,6 +1,6 @@
 package com.shurda.andrey.Lab2_6.example.testpack;
 
-import com.brainacad.carpack.Car;
+//import com.brainacad.carpack.Car;
 import com.shurda.andrey.Lab2_6.example.applepack.Apple;
 
 /**
@@ -22,9 +22,9 @@ import com.shurda.andrey.Lab2_6.example.applepack.Apple;
 public class Main {
     public static void main(String[] args) {
         Apple apple = new Apple();
-        Car car = new Car();
+//        Car car = new Car();
 
         System.out.println("Apple mass is: "+apple.getMass());
-        System.out.println("Car mass is: "+car.getMass());
+//        System.out.println("Car mass is: "+car.getMass());
     }
 }

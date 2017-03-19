@@ -1,10 +1,10 @@
 package com.shurda.andrey.Lab2_7.oop.testshapes;
 
-import com.shurda.andrey.Util.ArrayElements;
+import com.shurda.andrey.Util.Labs;
 
 import java.util.Arrays;
 
-import static com.shurda.andrey.Util.ArrayElements.*;
+import static com.shurda.andrey.Util.Labs.*;
 
 public class UseInterface {
     public static void main(String[] args) {

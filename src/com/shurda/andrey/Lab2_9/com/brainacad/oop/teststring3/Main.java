@@ -1,6 +1,6 @@
 package com.shurda.andrey.Lab2_9.com.brainacad.oop.teststring3;
 
-import com.shurda.andrey.Util.ArrayElements;
+import com.shurda.andrey.Util.Labs;
 
 import java.util.Arrays;
 
