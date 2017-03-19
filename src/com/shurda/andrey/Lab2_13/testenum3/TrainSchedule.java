@@ -95,7 +95,10 @@ public class TrainSchedule {
     public Train searchTrain(String stationDispatch, String stationArrival, MyDayOfWeek day) {
 //        for (Train train : trains) {
         for (int i = 0; i < trains.length; i++) {
-            if (trains[i].getStationDispatch().equals(stationDispatch) && trains[i].getStationArrival().equals(stationArrival)) {
+            boolean equalsStationDispatch = trains[i].getStationDispatch().equals(stationDispatch);
+            boolean equalsStationArrival = trains[i].getStationArrival().equals(stationArrival);
+
+            if (equalsStationDispatch && equalsStationArrival) {
                 for (int j = 0; j < trains[i].getDays().length; j++) {
                     if (trains[i].getDays()[j].equals(day)) {
                         return trains[i];
@@ -105,8 +108,6 @@ public class TrainSchedule {
         }
         return null;
     }
-
-
 
     class Train {
         private int number;
