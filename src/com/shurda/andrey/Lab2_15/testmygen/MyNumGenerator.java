@@ -1,9 +1,6 @@
 package com.shurda.andrey.Lab2_15.testmygen;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Add package “com.brainacad.oop.testmygen”.
@@ -24,12 +21,22 @@ public class MyNumGenerator {
     }
 
     public List<Number> generate() {
-        List<Number> list = new ArrayList();
+        List<Number> list = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < numOfElm; i++) {
             list.add(random.nextInt(maxNumb));
         }
 
         return list;
+    }
+
+    public Set<Number> generateDistinct() {
+        Set<Number> set = new HashSet<>();
+        Random random = new Random();
+        while (set.size() < numOfElm) {
+            int number = random.nextInt(maxNumb);
+            set.add(number);
+        }
+        return set;
     }
 }
