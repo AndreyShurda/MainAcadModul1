@@ -1,6 +1,7 @@
 package com.shurda.andrey.Lab2_17.testthread2;
 
-public class MySumCount extends Thread {
+//public class MySumCount extends Thread {
+public class MySumCount implements Runnable {
     private int startIndex;
     private int stopIndex;
     private int[] array;
@@ -10,7 +11,7 @@ public class MySumCount extends Thread {
     public void run() {
         for (int i = getStartIndex(); i < getStopIndex(); i++) {
             resultSum += array[i];
-            System.out.println(getName());
+//            System.out.println(getName());
         }
     }
 

@@ -37,11 +37,13 @@ public class Main {
         sumCount2.setStartIndex(myArray.length / 2);
         sumCount2.setStopIndex(myArray.length);
 
-        sumCount1.start();
-        sumCount2.start();
+        Thread threadSum1 = new Thread(sumCount1);
+        Thread threadSum2 = new Thread(sumCount2);
+        threadSum1.start();
+        threadSum2.start();
         try {
-            sumCount1.join();
-            sumCount2.join();
+            threadSum1.join();
+            threadSum2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
