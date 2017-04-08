@@ -30,5 +30,14 @@ public class Main {
     public static void main(String[] args) {
         MyTimeBoom boom1 = new MyTimeBoom();
         boom1.start();
+        try {
+            boom1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Lab2_17_2");
+        MyTimeBoom2 boom2 =new MyTimeBoom2();
+        new Thread(boom2).start();
     }
 }
