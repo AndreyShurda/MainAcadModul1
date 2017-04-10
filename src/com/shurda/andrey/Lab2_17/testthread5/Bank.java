@@ -15,8 +15,9 @@ public class Bank {
     void transfer(int from, int to, int amount) {
         try {
             System.out.println("from: " + from + " to: " + to + " amount: " + amount);
-            if (accounts[from] < amount)
+            if (from == to || accounts[from] < amount) {
                 return;
+            }
 
             accounts[from] = accounts[from] - amount;
             Thread.sleep((int) (100 * Math.random()));

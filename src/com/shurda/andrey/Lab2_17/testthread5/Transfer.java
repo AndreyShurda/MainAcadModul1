@@ -13,7 +13,9 @@ public class Transfer extends Thread {
 
     @Override
     public void run() {
-        int to = (int) (Math.random() * 5);
-        bank.transfer(from, to, max);
+        synchronized (bank) {
+            int to = (int) (Math.random() * BankTest.N_ACCOUNTS);
+            bank.transfer(from, to, max);
+        }
     }
 }
