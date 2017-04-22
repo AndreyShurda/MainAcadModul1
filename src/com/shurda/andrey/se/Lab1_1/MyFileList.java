@@ -12,10 +12,10 @@ import java.nio.file.Files;
  * Don't worry about formatting the output; just print one file or directory name per output line.
  */
 public class MyFileList {
-    public static void main(String[] args) {
+    public static void main(String[] args) {String path = System.getProperty("user.dir");
 
 //        String path = new File(".").getAbsolutePath();
-        String path = System.getProperty("user.dir");
+
 //        System.out.println("path: " + path);
 
         File[] files = new File[0];
