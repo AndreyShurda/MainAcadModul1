@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class Employee implements Serializable {
     private String name;
     private String address;
-    private int SSN;
+    private transient int SSN;
     private int number;
 
     public Employee(String name, String address, int SSN, int number) {
