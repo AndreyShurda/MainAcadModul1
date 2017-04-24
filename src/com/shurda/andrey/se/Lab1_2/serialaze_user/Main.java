@@ -53,14 +53,8 @@ public class Main {
 
     private static void serialazibleUser(User user, String nameOfFile) throws IOException {
         RandomAccessFile file = new RandomAccessFile(nameOfFile, "rw");
-
-        String line;
-        while ((line = file.readLine()) != null) {
-        }
-
-        file.getFilePointer();
+        file.seek(file.length());
         file.writeBytes(user.toString() + "\n");
-
         file.close();
     }
 
