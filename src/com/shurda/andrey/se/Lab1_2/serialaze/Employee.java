@@ -1,4 +1,4 @@
-package com.shurda.andrey.se.Lab1_2;
+package com.shurda.andrey.se.Lab1_2.serialaze;
 
 import java.io.Serializable;
 
