@@ -2,12 +2,6 @@ package com.shurda.andrey.se.Lab1_2.serialaze;
 
 import java.io.Serializable;
 
-/**
- * Create new project called DemoSerialize. Add package “com.brainacad.serialize”.
- * Create class Employee with private fields : String name, String address, int SSN, int number.
- * Add getters and setters to Employee class. Override the toString() method.
- * Create SerializeDemo program which instantiates an Employee object and serializes it to a file.
- */
 public class Employee implements Serializable {
     private String name;
     private String address;

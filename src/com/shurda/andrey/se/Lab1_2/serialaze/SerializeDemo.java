@@ -3,7 +3,15 @@ package com.shurda.andrey.se.Lab1_2.serialaze;
 import java.io.*;
 
 /**
- * Created by Admin on 23.04.2017.
+ * Create new project called DemoSerialize. Add package “com.brainacad.serialize”.
+ * Create class Employee with private fields : String name, String address, int SSN, int number.
+ * Add getters and setters to Employee class. Override the toString() method.
+ * Create SerializeDemo program which instantiates an Employee object and serializes it to a file.
+ * Lab1-2-2
+ * Create DeserializeDemo program which de-serializes the Employee object created in the SerializeDemo program.
+ * Import the Employee class.
+ * Lab1-2-3
+ * Modify class Employee (add transient keyword to SSN field)
  */
 public class SerializeDemo {
     public static void main(String[] args) throws IOException {
@@ -12,8 +20,8 @@ public class SerializeDemo {
 
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
-        objectOutputStream.writeObject(new Employee("Andrey", "Petrov", 1111,12));
-        objectOutputStream.writeObject(new Employee("Andrey", "Ivano", 2222,23));
+        objectOutputStream.writeObject(new Employee("Andrey", "Petrov", 1111, 12));
+        objectOutputStream.writeObject(new Employee("Andrey", "Ivano", 2222, 23));
         objectOutputStream.flush();
         objectOutputStream.close();
 
