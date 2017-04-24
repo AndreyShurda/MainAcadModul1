@@ -42,8 +42,6 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "firstName=" + firstName +
-                ", lastName=" + lastName +
-                ", age=" + age;
+        return firstName + "," + lastName + "," + age;
     }
 }

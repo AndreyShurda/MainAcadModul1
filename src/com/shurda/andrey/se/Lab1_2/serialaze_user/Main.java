@@ -1,8 +1,8 @@
 package com.shurda.andrey.se.Lab1_2.serialaze_user;
 
-import com.shurda.andrey.se.Lab1_2.Employee;
-
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Create new project called SerializeUser. Add package “com.brainacad.serialize_user”.
@@ -17,76 +17,60 @@ import java.io.*;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        User user = new User("Ivan", "Ivanov", 23);
-
-
         String nameOfFile = "users.txt";
-        serialazibleUser(user, nameOfFile);
+        List<User> users = new ArrayList<>();
 
-//        deserializableUser(nameOfFile);
+        users.add(new User("IRA", "Petrova", 18));
+        users.add(new User("Ivan", "Ivanov", 25));
+        users.add(new User("Sasha", "Popova", 31));
 
-//        RandomAccessFile file = new RandomAccessFile(nameOfFile, "r");
-//
-//        String line;
-//        long pointer = 0;
-//        while ((line = file.readLine()) != null) {
-////            pointer += line.length() - 1;
-//            String[] splitArray = line.replace(" ","").split(",");
-//
-//            for (String s : splitArray) {
-//                System.out.println(s);
-//            }
-//        }
+        deleteFile(nameOfFile);
+        for (User user : users) {
+            serialazibleUser(user, nameOfFile);
+        }
 
-
-
+        deserializableUser(nameOfFile);
 
     }
 
     private static void deserializableUser(String nameOfFile) throws IOException {
-        FileInputStream inputStream = new FileInputStream(nameOfFile);
-        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+        RandomAccessFile file = new RandomAccessFile(nameOfFile, "r");
 
-        User user;
+        String line;
+        while ((line = file.readLine()) != null) {
 
-        try {
-            while ((user = (User) objectInputStream.readObject()) != null) {
-//                student = (Student) objectInputStream.readObject();
-                System.out.println(user);
-            }
-        } catch (EOFException e) {
-            System.out.println("End of file");
-            objectInputStream.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            String[] splitArray = line.split(",");
+            User user = new User();
+
+            user.setFirstName(splitArray[0]);
+            user.setLastName(splitArray[1]);
+            user.setAge(Integer.valueOf(splitArray[2]));
+
+            System.out.println(user);
         }
+        file.close();
     }
 
     private static void serialazibleUser(User user, String nameOfFile) throws IOException {
-        FileOutputStream outputStream = new FileOutputStream(nameOfFile);
+        RandomAccessFile file = new RandomAccessFile(nameOfFile, "rw");
 
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+        String line;
+        while ((line = file.readLine()) != null) {
+        }
 
-        objectOutputStream.writeObject(user.getFirstName());
-        objectOutputStream.writeObject(user.getLastName());
-        objectOutputStream.writeInt(user.getAge());
+        file.getFilePointer();
+        file.writeBytes(user.toString() + "\n");
 
-        objectOutputStream.flush();
-        objectOutputStream.close();
+        file.close();
+    }
 
-//        RandomAccessFile file = new RandomAccessFile(nameOfFile, "rw");
-//
-//        String line;
-//        long pointer = 0;
-//        while ((line = file.readLine()) != null) {
-//            pointer += line.length() - 1;
-//        }
-//        file.seek(pointer);
-////        file.writeBytes(user.toString() + "\n");
-//        file.writeBytes(user.getFirstName());
-//        file.writeBytes(user.getLastName());
-//        file.writeBytes(String.valueOf( user.getAge()));
-//        System.out.println(user + " add to file");
-//        file.close();
+    private static void deleteFile(String fileName) {
+        File file = new File(fileName);
+
+           if (file.delete()){
+               System.out.println("File " +fileName+" delete successful");
+           }else {
+               System.out.println("This file " +fileName+" does not exist");
+           }
     }
 }
