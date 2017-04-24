@@ -1,8 +1,8 @@
 package com.shurda.andrey.se.Lab1_2.serialaze_user;
 
-import java.io.Serializable;
+import java.io.*;
 
-public class User implements Serializable {
+public class User implements Externalizable {
     private String firstName;
     private String lastName;
     private int age;
@@ -43,5 +43,19 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return firstName + "," + lastName + "," + age;
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeObject(firstName);
+        out.writeObject(lastName);
+        out.writeInt(age);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        firstName = (String) in.readObject();
+        lastName = (String) in.readObject();
+        age = in.readInt();
     }
 }
