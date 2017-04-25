@@ -1,48 +1,82 @@
 package com.shurda.andrey.se.Lab1_1;
 
 import java.io.*;
+import java.util.*;
 
-/**
- * Write a program that saves user name and the number of his visits to the company website in the file:
- * 1) Create with field a file (type RandomAccessFile), which is associated with the file "users.txt",
- * containing the user's name and the number of his visits to the company's website in the format: "nameUser:number".
- * For example,
- * Sidorov:2
- * Govga:1
- * Danilina:3
- * ……..
- * 2) Add in AccountingUser class the testUsers(String name User) method, which adds a new user to end the file,
- * while the existing - increases the number of visits;
- * 3) Add in AccountingUser class the printFile() method, which prints the contents of the file "users.txt";
- * 4) Add in AccountingUser class override finalize() method to close the file "users.txt";
- * 5) Create a class Main with a main() method, which creates a scanner for entering a user name, visit the company website,
- * and then tests it on a previous visit.
- */
 public class AccountingUser {
-    String fileName = "users.txt";
-    RandomAccessFile file = null;
+    private static final String fileName = "users.txt";
+    private RandomAccessFile file = null;
+    private static Map<String, Integer> users = new LinkedHashMap<>();
+
+    public AccountingUser() {
+        readFile();
+    }
+
+    private void readFile() {
+        try {
+            file = new RandomAccessFile(fileName, "r");
+            String line;
+            while ((line = file.readLine()) != null) {
+                String[] record = line.split(":");
+                users.put(record[0], Integer.parseInt(record[1]));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void validUser(String name) {
+        if (users.get(name) != null) {
+            Integer visitNumber = users.get(name);
+            users.put(name, ++visitNumber);
+        } else {
+            users.put(name, 1);
+        }
+    }
 
     public void testUsers(String name) {
         try {
             file = new RandomAccessFile(fileName, "rw");
-//            file.seek(0);
             String line;
-            while ((line = file.readLine()) != null) {
-//                System.out.println(line);
-                if (line.contains(name)) {
-                    System.out.println(line.contains(name));
-                    int index = line.indexOf(":");
-//                    file.seek(index + 1);
-                    int numberOfVisit = Integer.valueOf(line.substring(index + 1));
-                    System.out.println("read = " + numberOfVisit);
-                    numberOfVisit++;
-                    file.seek(index+1);
-                    file.write(new byte[]{(byte)numberOfVisit});
-//                    System.out.println(index);
+
+            int sizePrevUsersFile = users.size();
+            validUser(name);
+
+            if (sizePrevUsersFile == users.size()) {
+                long filePointer = 0;
+                while ((line = file.readLine()) != null) {
+                    if (line.contains(name)) {
+                        int index = line.indexOf(":");
+                        int numberOfVisit = Integer.valueOf(line.substring(index + 1));
+
+                        filePointer += index + 1;
+
+                        if (String.valueOf(numberOfVisit).length() == String.valueOf(++numberOfVisit).length()) {
+                            file.seek(filePointer);
+                            file.writeBytes(String.valueOf(numberOfVisit));
+                            break;
+                        } else {
+                            file.seek(0);
+                            Iterator<Map.Entry<String, Integer>> iterator = users.entrySet().iterator();
+
+                            while (iterator.hasNext()) {
+                                Map.Entry<String, Integer> next = iterator.next();
+
+                                String record = next.getKey() + ":" + next.getValue() + "\n";
+                                System.out.print(record);
+                                file.writeBytes(record);
+                            }
+                        }
+
+                    } else {
+                        filePointer += line.length() + 1;
+                    }
                 }
+            } else {
+                file.seek(file.length());
+                file.writeBytes("\n" + name + ":" + users.get(name));
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,17 +84,12 @@ public class AccountingUser {
 
     public void printFile() {
         try {
-            BufferedReader inputStream;
-
-            inputStream = new BufferedReader(new FileReader(fileName));
+            file = new RandomAccessFile(fileName, "r");
             String line;
-            while ((line = inputStream.readLine()) != null) {
-                String[] words = line.split(" ");
-                for (String word : words) {
-                    System.out.println(word);
-                }
+            while ((line = file.readLine()) != null) {
+                System.out.println(line);
             }
-            inputStream.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -68,4 +97,8 @@ public class AccountingUser {
         }
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        file.close();
+    }
 }
