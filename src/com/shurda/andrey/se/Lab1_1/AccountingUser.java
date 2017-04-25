@@ -63,7 +63,7 @@ public class AccountingUser {
                                 Map.Entry<String, Integer> next = iterator.next();
 
                                 String record = next.getKey() + ":" + next.getValue() + "\n";
-                                System.out.print(record);
+//                                System.out.print(record);
                                 file.writeBytes(record);
                             }
                         }

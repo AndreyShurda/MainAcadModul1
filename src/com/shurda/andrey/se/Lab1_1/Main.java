@@ -27,15 +27,25 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         AccountingUser accountingUser = new AccountingUser();
+        
         accountingUser.testUsers("Govga");
         accountingUser.printFile();
+        System.out.println();
+
         accountingUser.testUsers("Sidorov");
         accountingUser.printFile();
+        System.out.println();
+
         accountingUser.testUsers("Ruslan");
         accountingUser.printFile();
+        System.out.println();
+
         accountingUser.testUsers("Danilina12");
         accountingUser.printFile();
+        System.out.println();
+
         accountingUser.testUsers("Danilina");
         accountingUser.printFile();
+        System.out.println();
     }
 }
