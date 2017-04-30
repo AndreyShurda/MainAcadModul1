@@ -21,11 +21,14 @@ public class Main {
 
         System.out.println("Integer to stream");
 
-        IntStream.iterate(10, n -> n + 10)
+        List<Integer> list = IntStream.iterate(10, n -> n + 10)
                 .limit(10)
                 .map(n -> n / 2)
-//                .collect(Collectors.toList());
-                .forEach(System.out::println);
+                .boxed()
+                .collect(Collectors.toList());
+//                .forEach(System.out::println);
+
+        System.out.println(list);
 
         System.out.println();
         System.out.println("List<String> to stream");
@@ -41,9 +44,10 @@ public class Main {
         listStrings.add("eqwr13");
         listStrings.add("wweter13");
 
+        String symbol = "q";
         listStrings = listStrings.stream()
 //                .map(n -> n.substring(0, 1))
-                .filter(n -> n.substring(0, 1).contains("q"))
+                .filter(n -> n.substring(0, 1).contains(symbol))
                 .collect(Collectors.toList());
 
         System.out.println(listStrings);
@@ -60,19 +64,23 @@ public class Main {
         persons.add(new Person("Petro", 18, 'm'));
         persons.add(new Person("Ivan", 45, 'm'));
 
-        System.out.println(persons);
+//        System.out.println(persons);
+        persons.forEach(person -> System.out.println(person));
 
-        System.out.println("all military men (from 18 to 27 years old)");
+        System.out.println();
+        System.out.println("All military men (from 18 to 27 years old)");
         persons.stream()
                 .filter(person -> person.getGender() == 'm' && person.getAge() >= 18 && person.getAge() <= 27)
                 .forEach(System.out::println);
 
 
-        System.out.print("average age of women is");
-        OptionalDouble avergeAge = persons.stream()
+        System.out.println();
+        System.out.print("Average age of women is: ");
+        double avergeAge = persons.stream()
                 .filter(n -> n.getGender() == 'w')
                 .mapToInt(n -> n.getAge())
-                .average();
+                .average()
+                .getAsDouble();
 
         System.out.println(avergeAge);
     }

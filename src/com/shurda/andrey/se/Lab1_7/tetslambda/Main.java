@@ -45,7 +45,6 @@ public class Main {
         Arrays.sort(array, ((o1, o2) -> o2 - o1));
         System.out.println(Arrays.toString(array));
 
-
         List<String> list = new ArrayList<>();
 
         list.add("hello");
@@ -59,7 +58,7 @@ public class Main {
         System.out.println(list);
         System.out.println();
 
-        System.out.println("Array after sort");
+        System.out.println("List after sort");
         list.sort((o1, o2) -> o2.compareToIgnoreCase(o1));
         System.out.println(list);
 
