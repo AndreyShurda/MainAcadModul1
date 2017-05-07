@@ -47,7 +47,7 @@ public class Main {
         String symbol = "q";
         listStrings = listStrings.stream()
 //                .map(n -> n.substring(0, 1))
-                .filter(n -> n.substring(0, 1).contains(symbol))
+                .filter(n -> n.startsWith(symbol))
                 .collect(Collectors.toList());
 
         System.out.println(listStrings);
@@ -74,14 +74,16 @@ public class Main {
                 .forEach(System.out::println);
 
 
+        char gender = 'w';
         System.out.println();
         System.out.print("Average age of women is: ");
         double avergeAge = persons.stream()
-                .filter(n -> n.getGender() == 'w')
+                .filter(n -> n.getGender() == gender)
                 .mapToInt(n -> n.getAge())
                 .average()
                 .getAsDouble();
+//                .collect(Collectors.averagingInt(n -> n.getAge()));
 
-        System.out.println(avergeAge);
+        System.out.println((int) avergeAge);
     }
 }
