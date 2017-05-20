@@ -34,6 +34,19 @@ import java.lang.reflect.Modifier;
  * Return type: void
  * Param types: int
  * …
+ * Lab1-5-3
+ * 1) Write code to create instance of MyClass class using reflection (by invoking one-parameter constructor) and dynamically
+ * invoke setA() method with 33 value as argument.
+ * 2) Print all information about field’s values to console.
+ * 3) Execute the program. The program output must be like next example:
+ * Class name: com.brainacad.oop1.testreflection1.MyClass
+ * All fields:
+ * Name: a
+ * Type: int
+ * Value: 33
+ * Name: b
+ * Type: int
+ * Value: 9
  */
 public class Main {
     public static void main(String[] args) {
@@ -51,6 +64,7 @@ public class Main {
         }
         System.out.println();
 
+        System.out.println("All fields: ");
         Field[] fields = c.getDeclaredFields();
         for (Field field : fields) {
             System.out.println("Name: " + field.getName());
@@ -81,6 +95,36 @@ public class Main {
             }
             System.out.println();
         }
+
+        System.out.println("\nLab1-5-3");
+
+        Class<MyClass> cls = MyClass.class;
+        System.out.println("Class name: " + cls.getName());
+        try {
+            MyClass obj = new MyClass();
+            Class<?>[] paramType = {int.class};
+            Method method = cls.getMethod("setA", paramType);
+            Object[] arguments = new Object[]{Integer.valueOf(33)};
+            method.invoke(obj, arguments);
+
+            cls.getMethod("setB", paramType).invoke(obj, new Object[]{Integer.valueOf(9)});
+            cls.getMethod("setC", paramType).invoke(obj, new Object[]{Integer.valueOf(22)});
+            cls.getMethod("setD", paramType).invoke(obj, new Object[]{Integer.valueOf(45)});
+            System.out.println("All fields: ");
+
+            Field[] fieldsValue = c.getDeclaredFields();
+            for (Field field : fieldsValue) {
+                field.setAccessible(true);
+                System.out.println("Name: " + field.getName());
+                System.out.println("Type: " + field.getGenericType());
+                System.out.println("Value: " + field.get(obj));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
+
 }
 
