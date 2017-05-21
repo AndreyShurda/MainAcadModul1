@@ -99,7 +99,7 @@ public class MyApp extends JFrame {
                 textField.addKeyListener(new KeyListener() {
                     @Override
                     public void keyTyped(KeyEvent e) {
-                        result.setText(textField.getText());
+                        result.setText(textField.getText()+e.getKeyChar());
                     }
 
                     @Override

@@ -48,6 +48,7 @@ public class Main {
         panel.add(button);
 
         myFrame.add(panel);
+        myFrame.validate();
     }
 
     private static void runProgram(String program) {
