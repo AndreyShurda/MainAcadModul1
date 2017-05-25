@@ -18,28 +18,22 @@ import java.util.Arrays;
  * zxcv
  */
 public class Main {
-    private char[] value = {'a', 'b', 'c', 'd'};
-    private int a = 1;
-
     public static void main(String[] args) {
         String myStr = "abcd";
 
-
-        Class<Main> cls = Main.class;
         try {
-            Main obj = new Main();
-//            Field field = cls.getDeclaredField("a");
-            Field field = cls.getDeclaredField("value");
-            System.out.println("Old string value:" + Arrays.toString((char[]) field.get(obj)));
+            Field field = myStr.getClass().getDeclaredField("value");
+            System.out.println("Old string value: " + myStr);
             field.setAccessible(true);
-            field.set(obj, new char[]{'z', 'x', 'c', 'v'});
-
-            System.out.println("New string value: " + Arrays.toString((char[]) field.get(obj)));
-
-        } catch (Exception e) {
+            field.set(myStr, new char[]{'z', 'x', 'c', 'v'});
+            field.setAccessible(false);
+            System.out.println("New string value: " + myStr);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
 
-        System.out.println("zxcv");
+        System.out.println(myStr);
     }
 }
