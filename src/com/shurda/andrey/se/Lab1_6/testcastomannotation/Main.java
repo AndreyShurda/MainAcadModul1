@@ -16,16 +16,15 @@ public class Main {
         Action action = new Action();
 
         User user = new User("Ivan");
-        user.addPermission(USER_READ);
         user.addPermission(USER_WRITE);
 
         User user2 = new User("Petr");
         user2.addPermission(USER_WRITE);
 
-        getAccess(action, user);
-        getAccess(action, user2);
+//        getAccess(action, user);
+//        getAccess(action, user2);
 
-//        action.readingFile(user);
+        action.readingFile(user);
 //        action.writingFile(user);
 //
 //        action.readingFile(user2);
