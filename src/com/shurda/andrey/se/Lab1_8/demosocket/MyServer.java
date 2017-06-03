@@ -3,46 +3,32 @@ package com.shurda.andrey.se.Lab1_8.demosocket;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MyServer extends Thread {
+    private List<Student> users = new ArrayList<>();
 
+    private void initUsers() {
+        users.add(new Student(1, "Ivan", "C++"));
+        users.add(new Student(2, "Andrii", "JAVA"));
+        users.add(new Student(3, "Ira", "PHP"));
+        users.add(new Student(4, "Vova", "C#"));
+    }
     @Override
     public void run() {
-        ObjectInputStream objectInputStream = null;
-        BufferedWriter bufferedWriter;
-        Socket socket = null;
-        ;
+        Socket socket;
+
         try (ServerSocket serverSocket = new ServerSocket(8899)) {
             System.out.println("Server start");
-            socket = serverSocket.accept();
-            objectInputStream = new ObjectInputStream(socket.getInputStream());
-            try {
-                Student student = (Student) objectInputStream.readObject();
-                System.out.println(student);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+            initUsers();
+            while (true) {
+                socket = serverSocket.accept();
+                new ThreadClient(users, socket);
             }
-
-            bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            System.out.println("Server send for client msg");
-            bufferedWriter.write("I receive object");
-            bufferedWriter.close();
-
 
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-
-            try {
-                if (objectInputStream != null) {
-                    objectInputStream.close();
-                }
-                if (socket != null) {
-                    socket.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 }

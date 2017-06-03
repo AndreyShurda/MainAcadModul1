@@ -39,6 +39,27 @@ public class Student implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        if (id != student.id) return false;
+        if (name != null ? !name.equals(student.name) : student.name != null) return false;
+        return course != null ? course.equals(student.course) : student.course == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (course != null ? course.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +

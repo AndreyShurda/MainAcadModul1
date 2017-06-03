@@ -11,24 +11,26 @@ public class MyClient extends Thread {
 
     public MyClient(Student student) {
         this.student = student;
+        this.start();
     }
 
     @Override
     public void run() {
         ObjectOutputStream outputStream = null;
         BufferedReader bufferedReader = null;
+        String name = getName() + " Client ";
         try (Socket socket = new Socket("localhost", 8899)) {
-            System.out.println("Client start");
+            System.out.println(name + "start");
             outputStream = new ObjectOutputStream(socket.getOutputStream());
             outputStream.writeObject(student);
-            System.out.println("Client send object");
+//            System.out.println("Client send object");
 
             sleep(500);
 
             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String str;
             while ((str = bufferedReader.readLine()) != null) {
-                System.out.println("Client receive msg from server: " + str);
+                System.out.println(name + "receive msg from server: " + str);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,4 +51,3 @@ public class MyClient extends Thread {
         }
     }
 }
-
